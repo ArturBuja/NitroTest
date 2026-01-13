@@ -15,7 +15,7 @@
     "react-native": "0.83.1",
     "react-native-nitro-modules": "0.33.0",
     "react-native-safe-area-context": "^5.5.2",
-    "nitro": "file:./nitroTest"
+    "myModule": "file:./myModule"
   },
   "devDependencies": {
     "@babel/core": "^7.25.2",

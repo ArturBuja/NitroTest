@@ -8,18 +8,13 @@
 #pragma once
 
 // Forward declarations of C++ defined types
-// Forward declaration of `HybridMathSpec` to properly resolve imports.
-namespace margelo::nitro::myModule { class HybridMathSpec; }
+
 
 // Forward declarations of Swift defined types
-// Forward declaration of `HybridMathSpec_cxx` to properly resolve imports.
-namespace NitroMymodule { class HybridMathSpec_cxx; }
+
 
 // Include C++ defined types
-#include "HybridMathSpec.hpp"
-#include <NitroModules/Result.hpp>
-#include <exception>
-#include <memory>
+
 
 /**
  * Contains specialized versions of C++ templated types so they can be accessed from Swift,
@@ -27,25 +22,6 @@ namespace NitroMymodule { class HybridMathSpec_cxx; }
  */
 namespace margelo::nitro::myModule::bridge::swift {
 
-  // pragma MARK: std::shared_ptr<HybridMathSpec>
-  /**
-   * Specialized version of `std::shared_ptr<HybridMathSpec>`.
-   */
-  using std__shared_ptr_HybridMathSpec_ = std::shared_ptr<HybridMathSpec>;
-  std::shared_ptr<HybridMathSpec> create_std__shared_ptr_HybridMathSpec_(void* NON_NULL swiftUnsafePointer) noexcept;
-  void* NON_NULL get_std__shared_ptr_HybridMathSpec_(std__shared_ptr_HybridMathSpec_ cppType);
   
-  // pragma MARK: std::weak_ptr<HybridMathSpec>
-  using std__weak_ptr_HybridMathSpec_ = std::weak_ptr<HybridMathSpec>;
-  inline std__weak_ptr_HybridMathSpec_ weakify_std__shared_ptr_HybridMathSpec_(const std::shared_ptr<HybridMathSpec>& strong) noexcept { return strong; }
-  
-  // pragma MARK: Result<double>
-  using Result_double_ = Result<double>;
-  inline Result_double_ create_Result_double_(double value) noexcept {
-    return Result<double>::withValue(std::move(value));
-  }
-  inline Result_double_ create_Result_double_(const std::exception_ptr& error) noexcept {
-    return Result<double>::withError(error);
-  }
 
 } // namespace margelo::nitro::myModule::bridge::swift
