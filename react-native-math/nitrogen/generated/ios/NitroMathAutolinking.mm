@@ -24,7 +24,7 @@
   HybridObjectRegistry::registerHybridObjectConstructor(
     "Math",
     []() -> std::shared_ptr<HybridObject> {
-      std::shared_ptr<HybridMathSpec> hybridObject = NitroMath::NitroMathAutolinking::Math::create();
+      std::shared_ptr<HybridMathSpec> hybridObject = NitroMath::NitroMathAutolinking::AutolinkedMath::create();
       return hybridObject;
     }
   );

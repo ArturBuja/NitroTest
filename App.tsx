@@ -22,7 +22,7 @@ import { HybridMath } from 'react-native-math';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-  // console.log(HybridMath);
+  console.log(HybridMath.add(3, 5));
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
