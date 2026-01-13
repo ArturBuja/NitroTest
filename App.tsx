@@ -18,14 +18,11 @@ import {
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { type HybridObject, NitroModules } from 'react-native-nitro-modules';
-import { Math } from './myModule/src/specs/Math.nitro';
-
-const math = NitroModules.createHybridObject<Math>('Math');
+import { HybridMath } from 'react-native-math';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-
+  // console.log(HybridMath);
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
@@ -36,10 +33,10 @@ function App() {
 
 function AppContent() {
   const safeAreaInsets = useSafeAreaInsets();
-  const result = math.add(5, 7);
+
   return (
     <View style={styles.container}>
-      <Text>Result for add: {result.toString()}</Text>
+      {/* <Text>Result for add: {result.toString()}</Text> */}
       <NewAppScreen
         templateFileName="App.tsx"
         safeAreaInsets={safeAreaInsets}
