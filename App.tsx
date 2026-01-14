@@ -6,23 +6,18 @@
  */
 
 import { NewAppScreen } from '@react-native/new-app-screen';
-import {
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
 
-import { HybridMath } from 'react-native-math';
+import { HybridMath, HybridCrossPlatformMath } from 'react-native-math';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-  console.log(HybridMath.add(3, 5));
+  console.log(HybridMath.add(5, 5));
+  console.log(HybridCrossPlatformMath.add(10, 15));
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />

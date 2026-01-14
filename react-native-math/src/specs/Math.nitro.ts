@@ -6,3 +6,10 @@ export interface Math extends HybridObject<{
 }> {
   add(a: number, b: number): number
 }
+
+export interface CrossPlatformMath extends HybridObject<{
+  android: 'c++'
+  ios: 'c++'
+}> {
+  add(a: number, b: number): number
+}

@@ -11,6 +11,7 @@
 #import <type_traits>
 
 #include "HybridMathSpecSwift.hpp"
+#include "HybridCrossPlatformMath.hpp"
 
 @interface NitroMathAutolinking : NSObject
 @end
@@ -24,8 +25,17 @@
   HybridObjectRegistry::registerHybridObjectConstructor(
     "Math",
     []() -> std::shared_ptr<HybridObject> {
-      std::shared_ptr<HybridMathSpec> hybridObject = NitroMath::NitroMathAutolinking::AutolinkedMath::create();
+      std::shared_ptr<HybridMathSpec> hybridObject = NitroMath::NitroMathAutolinking::Math::create();
       return hybridObject;
+    }
+  );
+  HybridObjectRegistry::registerHybridObjectConstructor(
+    "CrossPlatformMath",
+    []() -> std::shared_ptr<HybridObject> {
+      static_assert(std::is_default_constructible_v<HybridCrossPlatformMath>,
+                    "The HybridObject \"HybridCrossPlatformMath\" is not default-constructible! "
+                    "Create a public constructor that takes zero arguments to be able to autolink this HybridObject.");
+      return std::make_shared<HybridCrossPlatformMath>();
     }
   );
 }

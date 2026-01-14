@@ -34,6 +34,7 @@ target_sources(
   ../nitrogen/generated/android/NitroMathOnLoad.cpp
   # Shared Nitrogen C++ sources
   ../nitrogen/generated/shared/c++/HybridMathSpec.cpp
+  ../nitrogen/generated/shared/c++/HybridCrossPlatformMathSpec.cpp
   # Android-specific Nitrogen C++ sources
   ../nitrogen/generated/android/c++/JHybridMathSpec.cpp
 )

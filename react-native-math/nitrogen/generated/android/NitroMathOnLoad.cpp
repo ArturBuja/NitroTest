@@ -16,6 +16,8 @@
 #include <NitroModules/HybridObjectRegistry.hpp>
 
 #include "JHybridMathSpec.hpp"
+#include <NitroModules/DefaultConstructableObject.hpp>
+#include "HybridCrossPlatformMath.hpp"
 
 namespace margelo::nitro::math {
 
@@ -29,7 +31,23 @@ int initialize(JavaVM* vm) {
     margelo::nitro::math::JHybridMathSpec::registerNatives();
 
     // Register Nitro Hybrid Objects
-    
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "Math",
+      []() -> std::shared_ptr<HybridObject> {
+        static DefaultConstructableObject<JHybridMathSpec::javaobject> object("com/margelo/nitro/math/HybridMath");
+        auto instance = object.create();
+        return instance->cthis()->shared();
+      }
+    );
+    HybridObjectRegistry::registerHybridObjectConstructor(
+      "CrossPlatformMath",
+      []() -> std::shared_ptr<HybridObject> {
+        static_assert(std::is_default_constructible_v<HybridCrossPlatformMath>,
+                      "The HybridObject \"HybridCrossPlatformMath\" is not default-constructible! "
+                      "Create a public constructor that takes zero arguments to be able to autolink this HybridObject.");
+        return std::make_shared<HybridCrossPlatformMath>();
+      }
+    );
   });
 }
 

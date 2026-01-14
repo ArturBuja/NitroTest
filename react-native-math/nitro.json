@@ -10,7 +10,11 @@
   },
   "autolinking": {
     "Math": {
-      "swift": "HybridMath"
+      "swift": "HybridMath",
+      "kotlin": "HybridMath"
+    },
+    "CrossPlatformMath": {
+      "cpp": "HybridCrossPlatformMath"
     }
   },
   "ignorePaths": ["**/node_modules"]

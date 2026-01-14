@@ -29,7 +29,7 @@ public final class NitroMathAutolinking {
     static var isRecyclableHybridView: Bool { get }
   }
 
-  public final class AutolinkedMath: AutolinkedClass {
+  public final class Math: AutolinkedClass {
     public static func create() -> bridge.std__shared_ptr_HybridMathSpec_ {
       let hybridObject = HybridMath()
       return { () -> bridge.std__shared_ptr_HybridMathSpec_ in
